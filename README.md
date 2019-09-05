@@ -6,6 +6,9 @@
 
 
 # Nano Vaadin - Ramp up in a second.
+
+## THIS README IS WORK IN PROGRESS
+
 A nano project to start a Vaadin project. Perfect for Micro-UIs packed as fat jar in a docker image.
 
 ## Supported JDK
@@ -16,7 +19,7 @@ To support the Heroku pipeline we need a few preparations.
 1) the app must be able to get a configured port for the http port during the start up
 1) add the shade plugin to create a fat jar
 1) create the file **Procfile** and add the line 
-    ``web: java -jar target/vaadin-app.jar -port $PORT```
+    ```web: java -jar target/vaadin-app.jar -port $PORT```
     * **web** - to activate the web profile
     * **-jar** - define what fat jar must be started
     * **-port** make the dynamic associated port available for the app
@@ -48,30 +51,21 @@ No DI to wire all things together.
 
 But let´s start from the beginning.
 
-## Start the Servlet-Container (Kotlin)
-The class ```BasicTestUIRunner``` will ramp up the Container.
+## Start the Servlet-Container (java/kotlin) 
+The class ```StartupJava``` or ```StartupKotlin``` will ramp up the Container.
 
-Here all the basic stuff is done. The start will init. a ServletContainer at port **8080**.
-If you want to use a random port, use ```randomHttpPort()``` instead of ```httpPort = 8080```
+Here all the basic stuff is being done. The start will init. a ServletContainer at port **8899**.
 The WebApp will deployed as **ROOT.war**. 
 
-```kotlin
-object BasicTestUIRunner {
+```java
+public class StartupJava {
+  private StartupJava() { }
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    Meecrowave(object : Meecrowave.Builder() {
-      init {
-        //        randomHttpPort();
-        httpPort = 8080
-        isTomcatScanning = true
-        isTomcatAutoSetup = false
-        isHttp2 = true
-      }
-    })
-        .bake()
-        .await()
+  public static void main(String[] args) throws ParseException {
+    new CoreUIJavaService().startup(args);
   }
+
+  public static void shutdown() { }
 }
 ```
 

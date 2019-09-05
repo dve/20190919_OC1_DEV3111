@@ -20,11 +20,9 @@ import org.reflections8.Reflections;
 
 import javax.servlet.ServletException;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static io.undertow.Handlers.path;
 import static io.undertow.Handlers.redirect;
-import static java.lang.Integer.valueOf;
 import static java.lang.System.getProperty;
 import static java.lang.System.setProperty;
 import static java.util.stream.Collectors.toSet;
