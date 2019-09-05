@@ -1,5 +1,5 @@
 #!/bin/bash
-docker build -t nanovaadin/undertow .
-#docker tag nanovaadin/undertow:latest nanovaadin/undertow:20190826-001
-#docker push nanovaadin/undertow:20190826-001
-docker push nanovaadin/undertow:latest
+docker build -t javaevent/2019-OC1-DEV3111 .
+#docker tag javaevent/2019-OC1-DEV3111:latest javaevent/2019-OC1-DEV3111:20190826-001
+#docker push javaevent/2019-OC1-DEV3111:20190826-001
+docker push javaevent/2019-OC1-DEV3111:latest

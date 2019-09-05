@@ -27,7 +27,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
 
-@Route("")
+@Route("unused")
 class VaadinKotlinApp : Composite<Div>(), HasLogger {
 
   private val btnClickMe = Button("click me")
