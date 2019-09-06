@@ -8,13 +8,14 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
+import static org.rapidpm.event.webcomponents.sapui5.UI5VersionDefinitions.UI5_VERSION;
+
 @Tag("ui5-switch")
-@NpmPackage(value = "@ui5/webcomponents", version = "v1.0.0-rc.2")
+@NpmPackage(value = "@ui5/webcomponents", version = UI5_VERSION)
 @JsModule("@ui5/webcomponents/dist/Switch.js")
 public class UI5Switch
     extends Component
-    implements HasSize, HasStyle {
-
+    implements HasSize, HasStyle, HasUI5Icon {
 
 
   public void setTextOn(String value) {
