@@ -1,5 +1,6 @@
 package org.rapidpm.junit5;
 
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.annotation.*;
@@ -11,7 +12,7 @@ import java.lang.annotation.*;
 @ExtendWith(ServletContainerExtension.class)
 @ExtendWith(WebdriverExtension.class)
 @ExtendWith(WebDriverParameterResolver.class)
-//@EnabledIfEnvironmentVariable(named = "TESTBENCH", matches = "on")
+@EnabledIfEnvironmentVariable(named = "TESTBENCH", matches = "on")
 public @interface VaadinTutorial {
   String packageToDeploy()default "junit.org.rapidpm";;
 }
