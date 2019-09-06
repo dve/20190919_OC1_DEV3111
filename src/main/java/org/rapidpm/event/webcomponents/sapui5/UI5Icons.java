@@ -4,10 +4,8 @@ import java.util.Arrays;
 
 public enum UI5Icons {
 
-
   NONE("sap-icon://none"),
   PHONE("sap-icon://phone");
-
 
   private String code;
 

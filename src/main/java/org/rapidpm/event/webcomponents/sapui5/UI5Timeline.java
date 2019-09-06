@@ -36,9 +36,9 @@ public class UI5Timeline
     extends Component
     implements HasLogger, HasComponents {
 
-
-  public void addTimeLineItem(UI5TimelineItem item){
-    getElement().appendChild(item.getElement());
+  public void addTimeLineItem(UI5TimelineItem item) {
+//    getElement().appendChild(item.getElement());
+    add(item);
   }
 
 }
