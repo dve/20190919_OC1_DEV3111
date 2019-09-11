@@ -34,7 +34,12 @@ A nano project to start a Vaadin project. Perfect for Micro-UIs packed as fat ja
 ### Infos for Devs
 * https://stackoverflow.com/questions/47721962/webpack-react-typescript-module-not-found-in-node-modules-react
 
+## Maven 
+To understand what is going on during the build process use the following command
 
+```bash
+mvn fr.jcgay.maven.plugins:buildplan-maven-plugin:list
+```
 
 
 ## Supported JDK

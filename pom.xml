@@ -19,6 +19,11 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>01_components</module>
+    <module>02_components-test</module>
+<!--    <module>03_demoapp</module>-->
+  </modules>
 
   <parent>
     <groupId>org.rapidpm</groupId>
@@ -29,9 +34,9 @@
 
   <groupId>org.rapidpm.event</groupId>
   <artifactId>2019-oc1-dev3111</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>01.00.00-OC1-SNAPSHOT</version>
 
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <inceptionYear>2017</inceptionYear>
   <organization>
@@ -97,6 +102,29 @@
     </snapshotRepository>
   </distributionManagement>
 
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.rapidpm.event</groupId>
+        <artifactId>2019-oc1-dev3111-components</artifactId>
+        <version>01.00.00-OC1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.rapidpm.event</groupId>
+        <artifactId>2019-oc1-dev3111-components</artifactId>
+        <version>01.00.00-OC1-SNAPSHOT</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.rapidpm.event</groupId>
+        <artifactId>2019-oc1-dev3111-components-test</artifactId>
+        <version>01.00.00-OC1-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <!--Infrastructure-->
     <dependency>
@@ -116,37 +144,6 @@
       <artifactId>undertow-websockets-jsr</artifactId>
       <version>${undertow.version}</version>
     </dependency>
-
-    <!--    Vaadin Flow Minimum-->
-    <!--For Core Vaadin Components-->
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-lumo-theme</artifactId>
-    </dependency>
-    <!--    <dependency>-->
-    <!--      <groupId>com.vaadin</groupId>-->
-    <!--      <artifactId>vaadin-material-theme</artifactId>-->
-    <!--    </dependency>-->
-
-    <!--    Flow Components that are used-->
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-button-flow</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-combo-box-flow</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-ordered-layout-flow</artifactId>
-    </dependency>
-
-    <!--    <dependency>-->
-    <!--      <groupId>com.github.vaadin-developer.id-generator-for-flow</groupId>-->
-    <!--      <artifactId>id-generator-for-flow-impl</artifactId>-->
-    <!--      <version>00.08.00-RPM</version>-->
-    <!--    </dependency>-->
 
     <dependency>
       <groupId>commons-cli</groupId>
@@ -253,26 +250,16 @@
       <!--      For dev/cooperation  - deactivated-->
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.1</version>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-maven-plugin</artifactId>
+        <version>${vaadin-v14.version}</version>
         <executions>
           <execution>
-            <phase>package</phase>
+            <phase>test-compile</phase>
             <goals>
-              <goal>shade</goal>
+              <goal>prepare-frontend</goal>
+              <goal>build-frontend</goal>
             </goals>
-            <configuration>
-              <finalName>vaadin-app</finalName>
-              <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <manifestEntries>
-                    <!--                    <Main-Class>demo.StartupJava</Main-Class>-->
-                    <Main-Class>demo.StartupKotlinKt</Main-Class>
-                  </manifestEntries>
-                </transformer>
-              </transformers>
-            </configuration>
           </execution>
         </executions>
       </plugin>
