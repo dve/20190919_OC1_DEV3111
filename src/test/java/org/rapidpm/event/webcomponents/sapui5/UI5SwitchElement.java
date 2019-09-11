@@ -33,11 +33,11 @@ public class UI5SwitchElement
     setProperty(ATTRIBUTE_CHECKED, false);
   }
 
-  public boolean isCheckedOn(){
+  public boolean isCheckedOn() {
     return getPropertyBoolean(ATTRIBUTE_CHECKED);
   }
 
-  public void setGraphical(boolean active){
+  public void setGraphical(boolean active) {
     setProperty(ATTRIBUTE_GRAPHICAL, active);
   }
 }

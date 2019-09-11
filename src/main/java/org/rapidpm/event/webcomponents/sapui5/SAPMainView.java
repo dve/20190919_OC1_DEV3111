@@ -3,7 +3,6 @@ package org.rapidpm.event.webcomponents.sapui5;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.combobox.ComboBox;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +13,7 @@ import org.rapidpm.event.webcomponents.sapui5.UI5TimelineItem.TimeLineItemClicke
 public class SAPMainView
     extends Composite<VerticalLayout>
     implements HasLogger {
-  public static final String NAV = "";
+  public static final String NAV = "SAP";
 
 
   public SAPMainView() {
@@ -26,11 +25,9 @@ public class SAPMainView
     final UI5Badge badge = new UI5Badge();
     badge.setText("A nice Badge");
     badge.setVisible(true);
-    badge.setColorScheme("5");
+    badge.setColorScheme(UI5Badge.ColorScheme.FIVE);
 //    badge.setWidth("50px");
-    badge.setUI5Icon(UI5Icons.PHONE.asUI5Icon());
-
-
+    badge.setUI5Icon(UI5Icons.ADD_EQUIPMENT.asUI5Icon());
     getContent().add(badge);
 
 
@@ -38,7 +35,6 @@ public class SAPMainView
     aSwitch.setTextOn("okok I will do it");
     aSwitch.setTextOff("nonono I am to lazy");
     aSwitch.setWidth("250px");
-
     getContent().add(aSwitch);
 
     final UI5Timeline ui5Timeline = new UI5Timeline();
@@ -57,7 +53,7 @@ public class SAPMainView
     ui5TimelineItem.setIcon(UI5Icons.PHONE);
 //    ui5TimelineItem.setIcon("sap-icon://activate");
     ui5TimelineItem.setItemNameClickable(true);
-    ui5TimelineItem.add(new ComboBox<String>("CB Label", "A", "B"));
+    ui5TimelineItem.add(new ComboBox<>("CB Label", "A", "B"));
     ui5TimelineItem.add(new Text("Huhu"));
     ui5TimelineItem.addItemNameClickEventListener((TimeLineItemClicked) domEvent -> {
       logger().info("got an event (data)" + domEvent.getEventData());

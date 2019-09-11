@@ -10,6 +10,7 @@ import io.undertow.servlet.Servlets;
 import io.undertow.servlet.api.DeploymentInfo;
 import io.undertow.servlet.api.DeploymentManager;
 import io.undertow.servlet.api.ServletContainerInitializerInfo;
+import io.undertow.websockets.jsr.WebSocketDeploymentInfo;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
@@ -84,6 +85,9 @@ public class CoreUIJavaService
                                                 new ServletContainerInitializerInfo(RouteRegistryInitializer.class,
                                                                                     setOfRouteAnnotatedClasses()))
                                             .addListener(Servlets.listener(ServletDeployer.class));
+
+    final WebSocketDeploymentInfo webSocketDeploymentInfo = new WebSocketDeploymentInfo();
+    servletBuilder.addServletContextAttribute(WebSocketDeploymentInfo.ATTRIBUTE_NAME, webSocketDeploymentInfo);
 
     final DeploymentManager manager = Servlets.defaultContainer()
                                               .addDeployment(servletBuilder);

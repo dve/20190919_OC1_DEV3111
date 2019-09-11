@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.rapidpm</groupId>
     <artifactId>rapidpm-vaadin-dependencies-v14</artifactId>
-    <version>04.01.10-RPM</version>
+    <version>04.01.15-RPM</version>
   </parent>
 
 
@@ -82,7 +82,6 @@
     <vaadin-productionMode>false</vaadin-productionMode>
     <vaadin-install-nodejs>true</vaadin-install-nodejs>
     <!--    <frontend-maven-plugin.installDirectory>_data</frontend-maven-plugin.installDirectory>-->
-
     <undertow.version>2.0.26.Final</undertow.version>
   </properties>
 
@@ -97,20 +96,6 @@
       <url>file://${basedir}/target/snapshot-repo/</url>
     </snapshotRepository>
   </distributionManagement>
-
-
-  <dependencyManagement>
-    <dependencies>
-      <!--Vaadin -->
-      <dependency>
-        <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-bom</artifactId>
-        <version>${vaadin-v14.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
     <!--Infrastructure-->
@@ -132,6 +117,31 @@
       <version>${undertow.version}</version>
     </dependency>
 
+    <!--    Vaadin Flow Minimum-->
+    <!--For Core Vaadin Components-->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-lumo-theme</artifactId>
+    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>com.vaadin</groupId>-->
+    <!--      <artifactId>vaadin-material-theme</artifactId>-->
+    <!--    </dependency>-->
+
+    <!--    Flow Components that are used-->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-button-flow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-combo-box-flow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-ordered-layout-flow</artifactId>
+    </dependency>
+
     <!--    <dependency>-->
     <!--      <groupId>com.github.vaadin-developer.id-generator-for-flow</groupId>-->
     <!--      <artifactId>id-generator-for-flow-impl</artifactId>-->
@@ -141,6 +151,12 @@
     <dependency>
       <groupId>commons-cli</groupId>
       <artifactId>commons-cli</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
     </dependency>
 
 
@@ -176,6 +192,35 @@
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-testbench</artifactId>
+      <version>14.0.3</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-server</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>net.bytebuddy</groupId>
+          <artifactId>byte-buddy</artifactId>
+        </exclusion>
+      </exclusions>
+      <!--<scope>test</scope>-->
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-testbench-core</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-server</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>net.bytebuddy</groupId>
+          <artifactId>byte-buddy</artifactId>
+        </exclusion>
+      </exclusions>
+      <!--<scope>test</scope>-->
     </dependency>
 
 
@@ -207,7 +252,6 @@
       </plugin>
       <!--      For dev/cooperation  - deactivated-->
 
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -235,4 +279,43 @@
 
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>vaadin-install-nodejs</id>
+      <activation>
+        <!--        <activeByDefault>false</activeByDefault>-->
+        <property>
+          <name>vaadin-install-nodejs</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
+                <id>install node and npm</id>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+                <!-- optional: default phase is "generate-resources" -->
+                <phase>generate-resources</phase>
+              </execution>
+            </executions>
+            <configuration>
+              <nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
+              <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
+              <npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
+              <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+              <!--              <downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>-->
+              <installDirectory>${frontend-maven-plugin.installDirectory}</installDirectory>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

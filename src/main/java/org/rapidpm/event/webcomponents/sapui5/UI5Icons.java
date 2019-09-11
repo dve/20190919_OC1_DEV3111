@@ -5,6 +5,7 @@ import java.util.Arrays;
 public enum UI5Icons {
 
   NONE("sap-icon://none"),
+  ADD_EQUIPMENT("sap-icon://add-equipment"),
   PHONE("sap-icon://phone");
 
   private String code;

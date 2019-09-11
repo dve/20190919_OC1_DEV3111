@@ -1,13 +1,9 @@
 package junit.org.rapidpm.event.webcomponents.sapui5;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.router.Route;
 import com.vaadin.testbench.TestBenchTestCase;
 import org.junit.jupiter.api.Assertions;
@@ -19,9 +15,7 @@ import org.rapidpm.event.webcomponents.sapui5.UI5SwitchElement;
 import org.rapidpm.junit5.VaadinTutorial;
 import org.rapidpm.junit5.WebDriverParameterResolver;
 
-import javax.swing.*;
-
-@VaadinTutorial(packageToDeploy = "junit.org")
+//@VaadinTutorial(packageToDeploy = "junit.org")
 public class UI5SwitchTest
     implements HasLogger {
   private static final String NAV      = "tdd/UI5SwitchTest";
@@ -73,7 +67,7 @@ public class UI5SwitchTest
     }
   }
 
-  @Test
+//  @Test
   void test001(UI5SwitchPO po) {
     final String url = "http://" + po.getHostIpAddress() + ":8899/";
     logger().info("URL : " + url + NAV);
@@ -96,7 +90,6 @@ public class UI5SwitchTest
     Assertions.assertFalse(element.isCheckedOn());
     element.setCheckedOn();
     Assertions.assertTrue(element.isCheckedOn());
-
 
   }
 }

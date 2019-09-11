@@ -20,17 +20,21 @@ A nano project to start a Vaadin project. Perfect for Micro-UIs packed as fat ja
 * https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=train&demo=basic
 * https://docs.oracle.com/en/middleware/developer-tools/jet/7.1/develop/web-components.html#GUID-AEC650BD-EA77-4CDC-8476-AC22E7FF9EEE
 
+## Stencil - Apple
+* https://stenciljs.com
+
+## Ing Lions
+*https://github.com/ing-bank/lion
+
 
 ## Microsoft Components
 * https://developer.microsoft.com/de-de/fabric#/controls/web/checkbox
 * https://github.com/OfficeDev/office-ui-fabric-react
 * https://www.npmjs.com/package/office-ui-fabric-react
-
 ### Infos for Devs
 * https://stackoverflow.com/questions/47721962/webpack-react-typescript-module-not-found-in-node-modules-react
 
-## Ing Lions
-*https://github.com/ing-bank/lion
+
 
 
 ## Supported JDK
