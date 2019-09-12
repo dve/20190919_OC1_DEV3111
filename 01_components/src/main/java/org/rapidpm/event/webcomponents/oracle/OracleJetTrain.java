@@ -2,6 +2,9 @@ package org.rapidpm.event.webcomponents.oracle;
 
 import com.google.gson.Gson;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 
 import java.util.Collection;
@@ -9,7 +12,7 @@ import java.util.Collection;
 
 //@Tag("oj-train")
 //@NpmPackage(value = "@oracle/oraclejet", version = "7.1.0")
-//@JsModule("@oracle/oraclejet/dist/types/ojtrain/index.d.ts")
+//@JsModule("@oracle/oraclejet/???????")
 public class OracleJetTrain
     extends Component {
 

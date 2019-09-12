@@ -10,6 +10,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.dom.DomEventListener;
 import com.vaadin.flow.dom.Element;
 
+import static java.lang.Boolean.parseBoolean;
 import static org.rapidpm.event.webcomponents.sapui5.UI5VersionDefinitions.UI5_VERSION;
 
 @Tag(UI5Switch.TAG_NAME)
@@ -19,24 +20,24 @@ public class UI5Switch
     extends Component
     implements HasSize, HasStyle, HasUI5Icon {
 
-  //TODO moving to different place to get it out of autocompletion
   protected static final String TAG_NAME            = "ui5-switch";
   protected static final String ATTRIBUTE_TEXT_ON   = "textOn";
   protected static final String ATTRIBUTE_TEXT_OFF  = "textOff";
   protected static final String ATTRIBUTE_CHECKED   = "checked";
   protected static final String ATTRIBUTE_GRAPHICAL = "graphical";
+  protected static final String EVENT_CHANGE        = "change";
 
   public UI5Switch() {
     setDefaults();
   }
 
-  private void setDefaults() {
-    checkedOff();
-  }
-
   public UI5Switch(Element element) {
     super(element);
     setDefaults();
+  }
+
+  private void setDefaults() {
+    checkedOff();
   }
 
   public void setTextOn(String value) {
@@ -64,7 +65,7 @@ public class UI5Switch
   }
 
   public boolean isCheckedOn() {
-    return Boolean.parseBoolean(getElement().getProperty(ATTRIBUTE_CHECKED));
+    return parseBoolean(getElement().getProperty(ATTRIBUTE_CHECKED));
   }
 
 
@@ -73,11 +74,11 @@ public class UI5Switch
   }
 
   public boolean isGraphical() {
-    return Boolean.parseBoolean(getElement().getProperty(ATTRIBUTE_GRAPHICAL));
+    return parseBoolean(getElement().getProperty(ATTRIBUTE_GRAPHICAL));
   }
 
   public void addChangeListener(SwitchChangeListener listener) {
-    getElement().addEventListener("change", listener);
+    getElement().addEventListener(EVENT_CHANGE, listener);
   }
 
 

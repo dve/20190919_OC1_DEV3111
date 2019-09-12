@@ -15,7 +15,6 @@ public class UI5BadgeView
 
   public static final String NAV = "UI5BadgeView";
 
-
   public UI5BadgeView() {
     final UI5Badge badge = new UI5Badge();
     badge.setText("A nice Badge");
