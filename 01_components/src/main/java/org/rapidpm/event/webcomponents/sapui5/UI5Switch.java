@@ -19,7 +19,6 @@ public class UI5Switch
     extends Component
     implements HasSize, HasStyle, HasUI5Icon {
 
-
   //TODO moving to different place to get it out of autocompletion
   protected static final String TAG_NAME            = "ui5-switch";
   protected static final String ATTRIBUTE_TEXT_ON   = "textOn";

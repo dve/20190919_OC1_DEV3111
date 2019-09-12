@@ -8,49 +8,57 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.dom.DomEventListener;
 import org.rapidpm.dependencies.core.logger.HasLogger;
 
+import static org.rapidpm.event.webcomponents.sapui5.UI5TimelineItem.TAG_NAME;
 import static org.rapidpm.event.webcomponents.sapui5.UI5VersionDefinitions.UI5_VERSION;
 
-@Tag("ui5-timeline-item")
+@Tag(TAG_NAME)
 @NpmPackage(value = "@ui5/webcomponents", version = UI5_VERSION)
 @JsModule("@ui5/webcomponents/dist/TimelineItem.js")
 public class UI5TimelineItem
     extends Component
     implements HasLogger, HasComponents, HasUI5Icon {
 
+  protected static final String TAG_NAME                      = "ui5-timeline-item";
+  protected static final String ATTRIBUTE_ITEM_NAME           = "itemName";
+  protected static final String ATTRIBUTE_ITEM_NAME_CLICKABLE = "itemNameClickable";
+  protected static final String ATTRIBUTE_SUBTITLE_TEXT       = "subtitleText";
+  protected static final String ATTRIBUTE_TITLE_TEXT          = "titleText";
+  protected static final String EVENT_ITEM_NAME_CLICK         = "itemNameClick";
+
   public void setItemName(String value) {
-    getElement().setProperty("itemName", value);
+    getElement().setProperty(ATTRIBUTE_ITEM_NAME, value);
   }
 
   public String getItemName() {
-    return getElement().getProperty("itemName");
+    return getElement().getProperty(ATTRIBUTE_ITEM_NAME);
   }
 
   public void setItemNameClickable(Boolean value) {
-    getElement().setProperty("itemNameClickable", value);
+    getElement().setProperty(ATTRIBUTE_ITEM_NAME_CLICKABLE, value);
   }
 
   public Boolean getItemNameClickable() {
-    return Boolean.parseBoolean(getElement().getProperty("itemNameClickable"));
+    return Boolean.parseBoolean(getElement().getProperty(ATTRIBUTE_ITEM_NAME_CLICKABLE));
   }
 
   public void setSubtitleText(String value) {
-    getElement().setProperty("subtitleText", value);
+    getElement().setProperty(ATTRIBUTE_SUBTITLE_TEXT, value);
   }
 
   public Boolean getSubtitleText() {
-    return Boolean.parseBoolean(getElement().getProperty("subtitleText"));
+    return Boolean.parseBoolean(getElement().getProperty(ATTRIBUTE_SUBTITLE_TEXT));
   }
 
   public void setTitleText(String value) {
-    getElement().setProperty("titleText", value);
+    getElement().setProperty(ATTRIBUTE_TITLE_TEXT, value);
   }
 
   public Boolean getTitleText() {
-    return Boolean.parseBoolean(getElement().getProperty("titleText"));
+    return Boolean.parseBoolean(getElement().getProperty(ATTRIBUTE_TITLE_TEXT));
   }
 
   public void addItemNameClickEventListener(TimeLineItemClicked listener) {
-    getElement().addEventListener("itemNameClick", listener);
+    getElement().addEventListener(EVENT_ITEM_NAME_CLICK, listener);
   }
 
   public static interface TimeLineItemClicked

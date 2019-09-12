@@ -34,9 +34,7 @@ public class UI5SwitchElement
   }
 
   public boolean isCheckedOn() {
-    final Object  property        = getProperty(ATTRIBUTE_CHECKED);
-//    final Boolean propertyBoolean = getPropertyBoolean(ATTRIBUTE_CHECKED);
-    return Boolean.parseBoolean(String.valueOf(property));
+    return Boolean.parseBoolean(getPropertyString(ATTRIBUTE_CHECKED));
   }
 
   public void setGraphical(boolean active) {

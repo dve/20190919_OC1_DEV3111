@@ -18,5 +18,14 @@ public class UI5BadgeElement
     setProperty(ATTRIBUTE_COLOR_SCHEME, colorScheme.asString());
   }
 
+  public void setText(String text) {
+    //setProperty();
+  }
+
+  @Override
+  public String getText() {
+    return null;
+  }
+
 
 }

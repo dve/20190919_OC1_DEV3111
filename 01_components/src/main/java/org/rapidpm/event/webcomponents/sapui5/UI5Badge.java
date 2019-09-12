@@ -39,7 +39,7 @@ public class UI5Badge
 
   @Override
   public String getText() {
-    return null;
+    return getElement().getTextRecursively();
   }
 
   public enum ColorScheme {
