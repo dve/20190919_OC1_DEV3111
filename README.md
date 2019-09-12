@@ -11,6 +11,40 @@
 
 A nano project to start a Vaadin project. Perfect for Micro-UIs packed as fat jar in a docker image.
 
+
+## SAP Componets
+[Component Playground](https://sap.github.io/ui5-webcomponents/playground/)
+* [Icons](https://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons/?tab=grid&icon=activate)
+* [Timeline](https://github.com/SAP/ui5-webcomponents/blob/master/packages/main/src/Timeline.js)
+
+[NPM UI5](https://www.npmjs.com/package/@ui5/webcomponents)
+
+## Oracle JET
+* https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=train&demo=basic
+* https://docs.oracle.com/en/middleware/developer-tools/jet/7.1/develop/web-components.html#GUID-AEC650BD-EA77-4CDC-8476-AC22E7FF9EEE
+
+## Stencil - Apple
+* https://stenciljs.com
+
+## Ing Lions
+*https://github.com/ing-bank/lion
+
+
+## Microsoft Components
+* https://developer.microsoft.com/de-de/fabric#/controls/web/checkbox
+* https://github.com/OfficeDev/office-ui-fabric-react
+* https://www.npmjs.com/package/office-ui-fabric-react
+### Infos for Devs
+* https://stackoverflow.com/questions/47721962/webpack-react-typescript-module-not-found-in-node-modules-react
+
+## Maven 
+To understand what is going on during the build process use the following command
+
+```bash
+mvn fr.jcgay.maven.plugins:buildplan-maven-plugin:list
+```
+
+
 ## Supported JDK
 This example is running from JDK8 up to JDK13
 
