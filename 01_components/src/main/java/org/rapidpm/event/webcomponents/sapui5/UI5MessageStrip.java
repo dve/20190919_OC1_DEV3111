@@ -22,7 +22,7 @@ public class UI5MessageStrip extends Component implements HasUI5Icon, HasText {
       PropertyDescriptors.propertyWithDefault("noCloseButton", false);
   private static PropertyDescriptor<Boolean, Boolean> noIconProperty =
       PropertyDescriptors.propertyWithDefault("noIcon", false);
-  private PropertyDescriptor<String, String> typeProperty = PropertyDescriptors
+  private static PropertyDescriptor<String, String> typeProperty = PropertyDescriptors
       .propertyWithDefault("type", UI5MessageStripType.INFORMATION.getAttributeName());
 
   @DomEvent("close")
